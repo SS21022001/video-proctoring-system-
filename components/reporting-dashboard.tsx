@@ -90,6 +90,7 @@ interface ReportingDashboardProps {
   reportData?: ReportData
   onDownloadReport?: () => void
   onGenerateNewReport?: () => void
+  isLoading?: boolean
 }
 
 export function ReportingDashboard({
@@ -97,6 +98,7 @@ export function ReportingDashboard({
   reportData,
   onDownloadReport,
   onGenerateNewReport,
+  isLoading = false,
 }: ReportingDashboardProps) {
   const [activeTab, setActiveTab] = useState("overview")
   const [isGenerating, setIsGenerating] = useState(false)
@@ -247,13 +249,13 @@ export function ReportingDashboard({
           <p className="text-muted-foreground">Comprehensive analysis for {data.session.candidateName}</p>
         </div>
         <div className="flex items-center gap-3">
-          <Button onClick={handleGenerateReport} disabled={isGenerating} variant="outline">
+          <Button onClick={handleGenerateReport} disabled={isGenerating || isLoading} variant="outline">
             <FileText className="h-4 w-4 mr-2" />
-            {isGenerating ? "Generating..." : "Regenerate"}
+            {isGenerating || isLoading ? "Generating..." : "Regenerate"}
           </Button>
-          <Button onClick={onDownloadReport} className="bg-primary hover:bg-primary/90">
+          <Button onClick={onDownloadReport} disabled={isLoading} className="bg-primary hover:bg-primary/90">
             <Download className="h-4 w-4 mr-2" />
-            Download Report
+            {isLoading ? "Processing..." : "Download Report"}
           </Button>
         </div>
       </div>
