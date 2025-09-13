@@ -5,9 +5,9 @@ import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Video Proctoring Demo',
-  description: '',
-  generator: 'Next.js',
+  title: 'Video Proctoring System',
+  description: 'AI-powered video proctoring system for secure online exams.',
+  generator: '',
 }
 
 export default function RootLayout({
