@@ -240,7 +240,7 @@ export function VideoInterface({
               {isRecording ? (isPaused ? "PAUSED" : "RECORDING") : "READY"}
             </Badge>
             {cvEnabled && (
-              <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
+              <Badge variant="default" className="bg-primary text-primary-foreground border-primary">
                 <Brain className="h-3 w-3 mr-1" />
                 AI Detection Active
               </Badge>
